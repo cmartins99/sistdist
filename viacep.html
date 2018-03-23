@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+        <script type="text/javascript">
+             $(function () {
+                $('#btnCallService').click(function () {
+                    cep = $("#txtCEP").val();
+                    $.ajax({
+                        type: 'post',
+                        url: 'https://viacep.com.br/ws/'+cep+'/json/',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (response) {
+                            $('#lblData').html(JSON.stringify(response) 
+                                    + "<br/>" +response.logradouro
+                                    + "<br/>" +response.bairro
+                                    + "<br/>" +response.localidade
+                                    + "<br/>" +response.uf
+                                    );
+                        },
+                        error: function (error) {
+                             $('#lblData').html(error + "  ** NAO ENCONTRADO **");
+                        }
+                    });
+                });
+            });
+            
+        </script>
+    </head>
+    <body>
+        <h3>
+            Chamando o Web Services com jQuery/AJAX
+        </h3>
+        CEP: <input type="text" id="txtCEP"><br>
+        <input type="button" id="btnCallService" value="GetEmployeeDetail">
+        <label id="lblData"></label>
+      
+
+    </body>
+</html>
