@@ -21,7 +21,7 @@ import com.dropbox.core.v2.users.FullAccount;
 
 public class Main {
 
-    private static final String ACCESS_TOKEN = "vvkG3EdLzSMAAAAAAAA63-v_2_NFAlwWgmBsNiRK0iJPgVzUbW_rY7nnBaF8xk8R";
+    private static final String ACCESS_TOKEN = "<INFORME O TOKEN AQUI>";
     private DbxRequestConfig config = null;
     DbxClientV2 client = null;
     FullAccount account = null;
